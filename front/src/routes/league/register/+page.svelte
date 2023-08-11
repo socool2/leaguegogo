@@ -1,3 +1,7 @@
+<script>
+  $: openModal = false;
+  $: leagueName = '';
+</script>
 <div class="">
   <div class="relative isolate px-6 pt-14 lg:px-8">
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -12,7 +16,9 @@
         <div class="w-full">
           <label for="league-name" class="block text-sm font-medium leading-6 text-gray-900"><span class="text-red-600">*</span> 리그 제목</label>
           <div class="mt-2">
-            <input type="text" name="league-name" id="league-name"
+            <input
+              bind:value={leagueName}
+              type="text" name="league-name" id="league-name"
                    maxlength="60"
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
                    placeholder="리그의 이름을 적어주세요 ex)한국 스플래툰 연합 리그" aria-describedby="league-description">
@@ -56,8 +62,37 @@
           </div>
         </div>
         <button
+          on:click={() => openModal = true}
           type="button" class="rounded-lg w-full  bg-primary-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">리그 만들기</button>
       </div>
     </div>
   </div>
 </div>
+
+{#if openModal}
+  <div class="relative z-20" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+    <div
+      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div
+          class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+          <div class="text-center text-gray-700">
+            {leagueName} 생성이 완료되었습니다! <br/>
+            이제, 첫 시즌 정보를 등록하겠습니다.
+          </div>
+          <div class="mt-5 sm:mt-6">
+            <button
+              on:click={() => openModal = false}
+              type="button"
+              class="inline-flex w-full justify-center rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
