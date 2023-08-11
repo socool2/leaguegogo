@@ -160,7 +160,7 @@
             </div>
             <div class="w-full">
               <label for="final-start-date" class="block text-sm font-medium leading-6 text-gray-900"><span
-                class="text-red-600">*</span> 예선 시작일</label>
+                class="text-red-600">*</span> 결선 시작일</label>
               <div class="mt-2">
                 <input type="date" name="final-start-date" id="final-start-date"
                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
@@ -169,7 +169,7 @@
             </div>
             <div class="w-full">
               <label for="final-end-date" class="block text-sm font-medium leading-6 text-gray-900"><span
-                class="text-red-600">*</span> 예선 종료일</label>
+                class="text-red-600">*</span> 결선 종료일</label>
               <div class="mt-2">
                 <input type="date" name="final-end-date" id="final-end-date"
                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
