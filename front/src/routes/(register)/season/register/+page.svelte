@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <!--  Start of 게임정보      -->
+        <!-- Start of 게임정보 -->
         <div class="flex justify-center flex-col items-center gap-8 my-4">
           <h2 class="text-xl font-bold tracking-tight text-neutral-700 sm:text-2xl break-keep">게임 정보</h2>
           <div class="flex items-center justify-center gap-4 ">
@@ -185,7 +185,7 @@
               </div>
             </div>
           </div>
-          <!--   End of 게임정보   -->
+          <!-- End of 게임정보 -->
           <div class="flex justify-center items-center">
             <button
               on:click={() => openModal = true}

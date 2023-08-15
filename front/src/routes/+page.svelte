@@ -10,4 +10,7 @@
   <a href="/season/register">
     로그인 > 관리자 로그인 > 리그 정보 등록 > 첫 시즌 정보 등록
   </a>
+  <a href="/main">
+    초기화면
+  </a>
 </div>
