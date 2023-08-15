@@ -1,4 +1,6 @@
-<script>
-  import "$lib/app.css";
-</script>
+<style global>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style>
 <slot></slot>
