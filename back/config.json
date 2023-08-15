@@ -1,7 +1,7 @@
 {
   "POSTGRES": {
-    "HOST": "host",
-    "PORT": "port",
+    "HOST": "localhost",
+    "PORT": "5432",
     "USER": "db_user",
     "NAME": "db_name",
     "PWD": "user_password"
