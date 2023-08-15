@@ -13,4 +13,8 @@
   <a href="/main">
     초기화면
   </a>
+  <a href="/teams">
+    팀 목록
+  </a>
+
 </div>

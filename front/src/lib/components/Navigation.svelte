@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+
   type Menu = {
     name: string
     href: string
@@ -7,15 +9,15 @@
   const centerMenu: Menu[] = [
     {
       name: '초기화면',
-      href: '/'
+      href: '/main'
     },
     {
       name: '경기현황',
-      href: '/'
+      href: '/match'
     },
     {
       name: '팀 목록',
-      href: '/'
+      href: '/teams'
     },
     {
       name: '시즌 게시판',
@@ -45,7 +47,7 @@
 
 </script>
 
-<header class="bg-white">
+<header class="bg-white border-b border-2 border-gray-300">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       로고 자리
@@ -62,12 +64,15 @@
     <div class="hidden lg:flex lg:gap-x-12 ">
       {#each centerMenu as menu}
         <a href="{menu.href}"
-           class="flex text-sm font-semibold leading-6 text-gray-600 text-center hover:text-gray-900">{menu.name}</a>
+           class:text-gray-900={$page.url.pathname === menu.href}
+           class="flex text-sm font-semibold leading-6 text-gray-500 text-center hover:text-gray-900">{menu.name}</a>
       {/each}
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-8">
       {#each endMenu as menu}
-        <a href="{menu.href}" class="text-sm font-semibold leading-6 text-gray-600">{menu.name}</a>
+        <a href="{menu.href}"
+           class:text-gray-900={$page.url.pathname === menu.href}
+           class="text-sm font-semibold leading-6 text-gray-500 hover:text-gray-900">{menu.name}</a>
       {/each}
     </div>
   </nav>
@@ -95,14 +100,16 @@
           <div class="space-y-2 py-6">
             {#each centerMenu as menu}
               <a href="{menu.href}"
-                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50">{menu.name}</a>
+                 class:text-gray-900={$page.url.pathname === menu.href}
+                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-50">{menu.name}</a>
               {/each}
 
           </div>
           <div class="py-6">
             {#each endMenu as menu}
               <a href="{menu.href}"
-                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-600 hover:bg-gray-50">{menu.name}</a>
+                 class:text-gray-900={$page.url.pathname === menu.href}
+                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-50">{menu.name}</a>
               {/each}
 
           </div>
