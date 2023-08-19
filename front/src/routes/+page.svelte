@@ -16,6 +16,9 @@
   <a href="/season/list">
     로그인 > 관리자 로그인 > 시즌 목록
   </a>
+  <a href="/game/list">
+    로그인 > 관리자 로그인 > 경기 목록
+  </a>
   <a href="/main">
     초기화면
   </a>
