@@ -1,6 +1,7 @@
 <script lang="ts">
   import TableButton from "$lib/components/teams/TableButton.svelte";
   import SeasonDetail from "$lib/components/season/SeasonDetail.svelte";
+  import SeasonTeamInfo from "$lib/components/season/SeasonTeamInfo.svelte";
 
   type Season = {
     season_id: string
@@ -88,9 +89,14 @@
   ]
 
   $: detailSeasonId = ""
+  $: seasonTeamId = ""
 
   const openDetail = (season_id: string) => {
     detailSeasonId = season_id;
+  }
+
+  const openSubmit = (season_id: string) => {
+    seasonTeamId = season_id
   }
 
 
@@ -140,7 +146,7 @@
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                       <div class="flex gap-2">
                         {season.playoff_status}
-                        <TableButton disabled={true}>게임 현황</TableButton>
+                        <TableButton onClick={() => openSubmit(season.season_id)}>신청 현황</TableButton>
                       </div>
                     </td>
                   </tr>
@@ -159,4 +165,8 @@
 
 {#if detailSeasonId !== ""}
   <SeasonDetail season_id={detailSeasonId} close={() => openDetail("")}/>
+{/if}
+
+{#if seasonTeamId !== ""}
+  <SeasonTeamInfo season_id={seasonTeamId} close={() => openSubmit("")}/>
 {/if}
