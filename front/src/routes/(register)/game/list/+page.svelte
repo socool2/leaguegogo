@@ -1,7 +1,7 @@
 <script lang="ts">
   import TableButton from "$lib/components/teams/TableButton.svelte";
   import TdDetail from "$lib/components/TdDetail.svelte";
-  import SearchButton from "$lib/components/teams/SearchButton.svelte";
+  import SearchButton from "$lib/components/SearchButton.svelte";
   import SaveResultReq from "$lib/components/games/SaveResultReq.svelte";
   import SaveEnterMain from "$lib/components/games/SaveEnterMain.svelte";
   import DetailInfo from "$lib/components/games/DetailInfo.svelte";

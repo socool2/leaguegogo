@@ -1,7 +1,7 @@
 <script lang="ts">
   import TableButton from "$lib/components/teams/TableButton.svelte";
   import TdDetail from "$lib/components/TdDetail.svelte";
-  import SearchButton from "$lib/components/teams/SearchButton.svelte";
+  import SearchButton from "$lib/components/SearchButton.svelte";
   import SeasonDetail from "$lib/components/season/SeasonDetail.svelte";
   import SeasonTeamInfo from "$lib/components/season/SeasonTeamInfo.svelte";
   import SeasonGameReq from "$lib/components/season/SeasonGameReq.svelte";
