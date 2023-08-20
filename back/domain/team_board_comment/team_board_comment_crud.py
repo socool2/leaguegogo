@@ -20,7 +20,7 @@ def create_team_board_comment_info(db: Session, team_board_comment_info: TeamBoa
     db_team_board_comment = TeamBoardComment(
         comment_id=team_board_comment_info.comment_id,
         board_id=team_board_comment_info.board_id,
-        comment_Desc=team_board_comment_info.comment_Desc,
+        comment_desc=team_board_comment_info.comment_desc,
         write_member_id=team_board_comment_info.write_member_id,
         write_date=team_board_comment_info.write_date,
         delete_date=team_board_comment_info.delete_date,
@@ -32,7 +32,7 @@ def create_team_board_comment_info(db: Session, team_board_comment_info: TeamBoa
 
 def update_team_board_comment_info(db: Session, team_board_comment_info: TeamBoardComment, team_board_comment_update: TeamBoardCommentUpdate):
     team_board_comment_info.comment_id = team_board_comment_update.comment_id,
-    team_board_comment_info.comment_Desc = team_board_comment_update.comment_Desc,
+    team_board_comment_info.comment_desc = team_board_comment_update.comment_desc,
     team_board_comment_info.delete_date = team_board_comment_update.delete_date
     team_board_comment_info.remark = team_board_comment_update.remark
     db.add(team_board_comment_info)

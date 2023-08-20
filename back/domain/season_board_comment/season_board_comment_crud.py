@@ -22,7 +22,7 @@ def create_season_board_comment_info(db: Session, season_board_comment_info: Sea
     db_season_board_comment = SeasonBoardComment(
         comment_id=season_board_comment_info.comment_id,
         board_id=season_board_comment_info.board_id,
-        comment_Desc=season_board_comment_info.comment_Desc,
+        comment_desc=season_board_comment_info.comment_desc,
         write_member_id=season_board_comment_info.write_member_id,
         write_date=season_board_comment_info.write_date,
         delete_date=season_board_comment_info.delete_date,
@@ -34,7 +34,7 @@ def create_season_board_comment_info(db: Session, season_board_comment_info: Sea
     
 def update_season_board_comment_info(db: Session, season_board_comment_info: SeasonBoardComment, season_board_comment_update: SeasonBoardCommentUpdate):
     season_board_comment_info.comment_id = season_board_comment_update.comment_id,
-    season_board_comment_info.comment_Desc = season_board_comment_update.comment_Desc,
+    season_board_comment_info.comment_desc = season_board_comment_update.comment_desc,
     season_board_comment_info.delete_date = season_board_comment_update.delete_date
     season_board_comment_info.remark = season_board_comment_update.remark
     db.add(season_board_comment_info)

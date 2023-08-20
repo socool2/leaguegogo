@@ -193,7 +193,7 @@ class TeamBoardComment(Base):
 
     comment_id = Column(Integer, primary_key=True)
     board_id = Column(Integer)
-    comment_Desc = Column(String)
+    comment_desc = Column(String)
     write_member_id = Column(String)
     write_date = Column(DateTime)
     delete_date = Column(DateTime)
@@ -221,7 +221,7 @@ class SeasonBoardComment(Base):
 
     comment_id = Column(Integer, primary_key=True)
     board_id = Column(Integer)
-    comment_Desc = Column(String)
+    comment_desc = Column(String)
     write_member_id = Column(String)
     write_date = Column(DateTime)
     delete_date = Column(DateTime)
