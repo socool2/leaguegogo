@@ -46,10 +46,10 @@ def get_existing_user(db: Session, member_create: Member):
 
 
 def update_member_info(db: Session, member_info: Member, member_update: MemberUpdate):
-    member_info.member_nick_name=member_update.member_nick_name,
-    member_info.phone_num=member_update.phone_num,
-    member_info.introduce_member=member_update.introduce_member
-    member_info.remark=member_update.remark
+    member_info.member_nick_name = member_update.member_nick_name,
+    member_info.phone_num = member_update.phone_num,
+    member_info.introduce_member = member_update.introduce_member
+    member_info.remark = member_update.remark
     db.add(member_info)
     db.commit()
 

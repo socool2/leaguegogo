@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class TeamBoardComment(BaseModel):
     comment_id: int
     board_id: int
-    comment_Desc: str
+    comment_desc: str
     write_member_id: int
     write_date: datetime.datetime
     delete_date: datetime.datetime
@@ -23,7 +23,7 @@ class TeamBoardCommentList(BaseModel):
 
 class TeamBoardCommentUpdate(BaseModel):
     comment_id: int
-    comment_Desc: str
+    comment_desc: str
     delete_date: datetime.datetime
     remark: str
 

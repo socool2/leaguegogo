@@ -15,6 +15,7 @@ class Game(BaseModel):
     team1_result: str
     team2_point: int
     team2_result: str
+
     # round_status: scheduled, finished
     round_status: str
     round_video_link: str
@@ -24,12 +25,12 @@ class Game(BaseModel):
         from_attributes = True
 
     @classmethod
-    def new_game(cls, season_id: int, team1_id: int, team2_id: int, game_type: str, round: int):
+    def new_game(cls, season_id: int, team1_id: int, team2_id: int, game_type: str, game_round: int):
         return cls(
             game_id=None,
             season_id=season_id,
             game_type=game_type,
-            game_round=round,
+            game_round=game_round,
             team1_id=team1_id,
             team2_id=team2_id,
             game_date=None,

@@ -106,7 +106,7 @@ class SeasonInfo(Base):
 class GameInfo(Base):
     __tablename__ = "game_info"
 
-    game_id = Column(Integer, nullable=False)
+    game_id = Column(Integer, primary_key=True)
     season_id = Column(Integer, nullable=False)
     game_type = Column(String)
     game_round = Column(Integer)
