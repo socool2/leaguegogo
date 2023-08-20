@@ -7,8 +7,17 @@
   <a href="/league/register">
     로그인 > 관리자 로그인 > 첫 리그 정보 등록
   </a>
+  <a href="/league/update">
+    로그인 > 관리자 로그인 > 리그 관리 > 리그 정보 수정
+  </a>
   <a href="/season/register">
     로그인 > 관리자 로그인 > 리그 정보 등록 > 첫 시즌 정보 등록
+  </a>
+  <a href="/season/list">
+    로그인 > 관리자 로그인 > 시즌 목록
+  </a>
+  <a href="/game/list">
+    로그인 > 관리자 로그인 > 경기 목록
   </a>
   <a href="/main">
     초기화면
