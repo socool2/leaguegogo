@@ -27,6 +27,8 @@ alembic init migrations
 # target_metadata를 찾아 아래처럼 작성
 # target_metadata = models.Base.metadata
 
+
+
 alembic revision --autogenerate
 alembic upgrade head
 

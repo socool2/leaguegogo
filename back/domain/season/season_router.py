@@ -6,8 +6,11 @@ from sqlalchemy.orm import Session
 from starlette import status
 
 from database import get_db
+from domain.game.game_crud import define_game_info
+from domain.game.game_schema import Game
 
 from domain.season import season_schema, season_crud
+from domain.season_team.season_team_schema import SeasonTeamList
 
 router = APIRouter(
     prefix="/api/season",
@@ -36,7 +39,7 @@ def season_create(_season_info: season_schema.Season, db: Session = Depends(get_
 
 @router.put('/update', status_code=status.HTTP_204_NO_CONTENT)
 def season_update(_season_update: season_schema.SeasonUpdate,
-                db: Session = Depends(get_db)):
+                  db: Session = Depends(get_db)):
     db_season = season_crud.get_season_info(db, season_id=_season_update.season_id)
     if not db_season:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="데이터를 찾을 수 없습니다.")
@@ -45,8 +48,36 @@ def season_update(_season_update: season_schema.SeasonUpdate,
 
 @router.delete('/delete', status_code=status.HTTP_204_NO_CONTENT)
 def season_delete(_season_delete: season_schema.SeasonDelete,
-                db: Session = Depends(get_db)):
+                  db: Session = Depends(get_db)):
     db_season = season_crud.get_season_info(db, season_id=_season_delete.season_id)
     if not db_season:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='데이터를 찾을 수 없습니다.')
     season_crud.delete_season(db=db, db_season=db_season)
+
+
+@router.post('/{season_id}/confirm', status_code=status.HTTP_204_NO_CONTENT)
+def season_confirm(season_id: int, db: Session = Depends(get_db)):
+    db_season = season_crud.get_season_info(db, season_id=season_id)
+    teams = db.query(SeasonTeamList).filter(SeasonTeamList.season_id == season_id).all()
+    if not db_season:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='데이터를 찾을 수 없습니다.')
+    # match all teams
+    games = []
+    try:
+        for i in range(len(teams)):
+            for j in range(i + 1, len(teams)):
+                for k in range(2):
+                    games.append(define_game_info(
+                        Game.new_game(season_id=season_id, team1_id=teams[i].team_id, team2_id=teams[j].team_id,
+                                      round=k + 1, game_type='preli')))
+
+        db.add_all(games)
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail='게임 생성에 실패했습니다.')
+
+    db.commit()
+
+    season_crud.confirm_season(db=db, season_id=season_id)
