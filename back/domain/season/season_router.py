@@ -69,7 +69,8 @@ def season_confirm(season_id: int, db: Session = Depends(get_db)):
     try:
         for i in range(len(teams)):
             for j in range(i + 1, len(teams)):
-                for k in range(2):
+                # 프리뷰 시점까지는 3라운드 고정
+                for k in range(3):
                     games.append(define_game_info(
                         Game.new_game(season_id=season_id, team1_id=teams[i].team_id, team2_id=teams[j].team_id,
                                       game_round=k + 1, game_type='preli', game_date=match_date)))
