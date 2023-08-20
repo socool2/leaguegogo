@@ -25,7 +25,7 @@ class Game(BaseModel):
         from_attributes = True
 
     @classmethod
-    def new_game(cls, season_id: int, team1_id: int, team2_id: int, game_type: str, game_round: int):
+    def new_game(cls, season_id: int, team1_id: int, team2_id: int, game_type: str, game_round: int, game_date: datetime.datetime):
         return cls(
             game_id=None,
             season_id=season_id,
@@ -33,7 +33,7 @@ class Game(BaseModel):
             game_round=game_round,
             team1_id=team1_id,
             team2_id=team2_id,
-            game_date=None,
+            game_date=game_date,
             team1_point=0,
             team1_result="scheduled",
             team2_point=0,
@@ -42,7 +42,6 @@ class Game(BaseModel):
             round_video_link=None,
             remark=None
         )
-
 
 
 class GameList(BaseModel):

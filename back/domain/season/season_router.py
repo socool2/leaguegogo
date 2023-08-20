@@ -59,9 +59,12 @@ def season_delete(_season_delete: season_schema.SeasonDelete,
 def season_confirm(season_id: int, db: Session = Depends(get_db)):
     db_season = season_crud.get_season_info(db, season_id=season_id)
     teams = db.query(SeasonTeamList).filter(SeasonTeamList.season_id == season_id).all()
+
     if not db_season:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='데이터를 찾을 수 없습니다.')
+
     # match all teams
+    match_date = db_season.main_start_date
     games = []
     try:
         for i in range(len(teams)):
@@ -69,7 +72,8 @@ def season_confirm(season_id: int, db: Session = Depends(get_db)):
                 for k in range(2):
                     games.append(define_game_info(
                         Game.new_game(season_id=season_id, team1_id=teams[i].team_id, team2_id=teams[j].team_id,
-                                      game_round=k + 1, game_type='preli')))
+                                      game_round=k + 1, game_type='preli', game_date=match_date)))
+                    match_date += datetime.timedelta(days=1)
 
         db.add_all(games)
         db.commit()

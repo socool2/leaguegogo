@@ -90,6 +90,7 @@ class SeasonInfo(Base):
     preli_start_date = Column(DateTime)
     preli_end_date = Column(DateTime)
     preli_status = Column(String)
+    # 프리뷰 상태에서는 main만 사용
     main_yn = Column(String)
     main_game_cnt = Column(Integer)
     main_start_date = Column(DateTime)
