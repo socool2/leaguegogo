@@ -25,7 +25,7 @@ def season_team_history_list(db: Session = Depends(get_db), page: int = 0, size:
 
 
 @router.get("/detail/{season_team_history_id}", response_model=SeasonTeamHistory)
-def season_team_history_detail(season_team_history_id: str, db: Session = Depends(get_db)):
+def season_team_history_detail(season_team_history_id: int, db: Session = Depends(get_db)):
     season_team_history = season_team_history_crud.get_season_team_history_info(db, season_team_history_id=season_team_history_id)
     return season_team_history
 

@@ -81,3 +81,4 @@ def update_season_info(db: Session, season_info: Season, season_update: SeasonUp
 def delete_season(db: Session, db_season: Season):
     db.delete(db_season)
     db.commit()
+

@@ -11,7 +11,7 @@ def get_team_member_list(db: Session, skip: int = 0, limit: int = 10):
     return total, team_member_list
 
 
-def get_team_member_info(db: Session, team_member_id: str):
+def get_team_member_info(db: Session, team_member_id: int):
     team_member = db.query(TeamMemberInfo).get(team_member_id)
     return team_member
 

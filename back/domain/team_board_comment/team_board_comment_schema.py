@@ -7,7 +7,7 @@ class TeamBoardComment(BaseModel):
     comment_id: int
     board_id: int
     comment_desc: str
-    write_member_id: str
+    write_member_id: int
     write_date: datetime.datetime
     delete_date: datetime.datetime
     remark: str

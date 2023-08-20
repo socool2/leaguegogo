@@ -3,9 +3,9 @@ from pydantic import BaseModel
 
 class GameMember(BaseModel):
     game_member_id: int
-    game_id: str
-    team_id: str
-    member_id: str
+    game_id: int
+    team_id: int
+    member_id: int
     game_position: str
     remark: str
 
@@ -20,7 +20,7 @@ class GameMemberList(BaseModel):
 
 class GameMemberUpdate(BaseModel):
     game_member_id: int
-    member_id: str
+    member_id: int
     game_position: str
     remark: str
 

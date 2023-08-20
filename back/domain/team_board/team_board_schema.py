@@ -5,13 +5,13 @@ from pydantic import BaseModel
 
 class TeamBoard(BaseModel):
     board_id: int
-    team_id: str
+    team_id: int
     board_type: str
     board_title: str
     board_desc: str
     board_date: datetime.datetime
     file_link: str
-    write_member_id: str
+    write_member_id: int
     write_date: datetime.datetime
     delete_date: datetime.datetime
     comment_yn: str
@@ -28,7 +28,7 @@ class TeamBoardList(BaseModel):
 
 class TeamBoardUpdate(BaseModel):
     board_id: int
-    team_id: str
+    team_id: int
     board_type: str
     board_title: str
     board_desc: str

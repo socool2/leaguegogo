@@ -6,8 +6,8 @@
     season_id: number;
     game_type: string
     game_round: number;
-    team1_id: string;
-    team2_id: string;
+    team1_id: number;
+    team2_id: number;
     game_date: Date;
     team1_point: number;
     team1_result: string;
@@ -22,8 +22,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamA",
-      team2_id: "TeamB",
+      team1_id: 1,
+      team2_id: 2,
       game_date: new Date("2023-08-15"),
       team1_point: 85,
       team1_result: "Win",
@@ -36,8 +36,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamC",
-      team2_id: "TeamD",
+      team1_id: 3,
+      team2_id: 4,
       game_date: new Date("2023-08-16"),
       team1_point: 92,
       team1_result: "Win",
@@ -50,8 +50,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamA",
-      team2_id: "TeamB",
+      team1_id: 1,
+      team2_id: 2,
       game_date: new Date("2023-08-15"),
       team1_point: 85,
       team1_result: "Win",
@@ -64,8 +64,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamC",
-      team2_id: "TeamD",
+      team1_id: 1,
+      team2_id: 2,
       game_date: new Date("2023-08-16"),
       team1_point: 92,
       team1_result: "Win",
@@ -78,8 +78,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamA",
-      team2_id: "TeamB",
+      team1_id: 1,
+      team2_id: 2,
       game_date: new Date("2023-08-15"),
       team1_point: 85,
       team1_result: "Win",
@@ -92,8 +92,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamC",
-      team2_id: "TeamD",
+      team1_id: 3,
+      team2_id: 4,
       game_date: new Date("2023-08-16"),
       team1_point: 92,
       team1_result: "Win",
@@ -106,8 +106,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamA",
-      team2_id: "TeamB",
+      team1_id: 1,
+      team2_id: 2,
       game_date: new Date("2023-08-15"),
       team1_point: 85,
       team1_result: "Win",
@@ -120,8 +120,8 @@
       season_id: 2023,
       game_type: "Regular Season",
       game_round: 1,
-      team1_id: "TeamC",
-      team2_id: "TeamD",
+      team1_id: 3,
+      team2_id: 4,
       game_date: new Date("2023-08-16"),
       team1_point: 92,
       team1_result: "Win",

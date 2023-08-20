@@ -17,7 +17,13 @@ def get_game_info(db: Session, game_id: int):
 
 
 def create_game_info(db: Session, game_info: Game):
-    db_game = GameInfo(
+    db_game = define_game_info(db, game_info)
+    db.add(db_game)
+    db.commit()
+
+
+def define_game_info(db: Session, game_info: Game):
+    return GameInfo(
         game_id=game_info.game_id,
         season_id=game_info.season_id,
         game_type=game_info.game_type,
@@ -33,9 +39,7 @@ def create_game_info(db: Session, game_info: Game):
         round_video_link=game_info.round_video_link,
         remark=game_info.remark
     )
-    db.add(db_game)
-    db.commit()
-    
+
     
 def update_game_info(db: Session, game_info: Game, game_update: GameUpdate):
     game_info.game_id = game_update.game_id,
