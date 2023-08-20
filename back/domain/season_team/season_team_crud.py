@@ -11,7 +11,7 @@ def get_season_team_list(db: Session, skip: int = 0, limit: int = 10):
     return total, season_team_list
 
 
-def get_season_team_info(db: Session, season_team_id: str):
+def get_season_team_info(db: Session, season_team_id: int):
     season_team = db.query(SeasonTeamInfo).get(season_team_id)
     return season_team
 

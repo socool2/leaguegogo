@@ -5,8 +5,8 @@ from pydantic import BaseModel
 
 class Supporters(BaseModel):
     supporters_id: int
-    team_id: str
-    member_id: str
+    team_id: int
+    member_id: int
     supp_reg_date: datetime.datetime
     supp_with_date: datetime.datetime | None
     supp_grade: str
@@ -23,8 +23,8 @@ class SupportersList(BaseModel):
 
 class SupportersUpdate(BaseModel):
     supporters_id: int
-    team_id: str
-    member_id: str
+    team_id: int
+    member_id: int
     supp_with_date: datetime.datetime | None
     supp_grade: str
     remark: str | None

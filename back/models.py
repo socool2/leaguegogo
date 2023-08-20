@@ -6,8 +6,9 @@ from database import Base
 class MemberInfo(Base):
     __tablename__ = "member_info"
 
-    member_id = Column(String, primary_key=True)
-    member_nick_name = Column(String, nullable=False)
+    member_id = Column(Integer, primary_key=True)
+    username = Column(String, unique=True, nullable=False)
+    nick_name = Column(String, nullable=False)
     reg_date = Column(DateTime, nullable=False)
     with_date = Column(DateTime)
     phone_num = Column(String, nullable=False)
@@ -23,7 +24,7 @@ class MemberInfo(Base):
 class TeamInfo(Base):
     __tablename__ = "team_info"
 
-    team_id = Column(String, primary_key=True)
+    team_id = Column(Integer, primary_key=True)
     team_name = Column(String, nullable=False)
     team_creator = Column(String, nullable=False)
     introduce_team = Column(Text)
@@ -49,8 +50,8 @@ class SupportersInfo(Base):
     __tablename__ = "supporters_info"
 
     supporters_id = Column(Integer, primary_key=True)
-    team_id = Column(String, nullable=False)
-    member_id = Column(String, nullable=False)
+    team_id = Column(Integer, nullable=False)
+    member_id = Column(Integer, nullable=False)
     supp_reg_date = Column(DateTime, nullable=False)
     supp_with_date = Column(DateTime)
     supp_grade = Column(String, nullable=False)
@@ -60,7 +61,7 @@ class SupportersInfo(Base):
 class LeagueInfo(Base):
     __tablename__ = "league_info"
 
-    league_id = Column(String, primary_key=True)
+    league_id = Column(Integer, primary_key=True)
     league_name = Column(String, nullable=False)
     league_creator = Column(String, nullable=False)
     league_create_date = Column(DateTime, nullable=False)
@@ -76,7 +77,7 @@ class SeasonInfo(Base):
     __tablename__ = "season_info"
 
     season_id = Column(Integer, primary_key=True)
-    league_id = Column(String, nullable=False)
+    league_id = Column(Integer, nullable=False)
     season_name = Column(String, nullable=False)
     season_start_date = Column(DateTime, nullable=False)
     season_end_date = Column(DateTime, nullable=False)
@@ -105,7 +106,7 @@ class SeasonInfo(Base):
 class GameInfo(Base):
     __tablename__ = "game_info"
 
-    game_id = Column(String, primary_key=True)
+    game_id = Column(Integer, nullable=False)
     season_id = Column(Integer, nullable=False)
     game_type = Column(String)
     game_round = Column(Integer)
@@ -151,9 +152,9 @@ class SeasonTeamHistory(Base):
 class GameMemberInfo(Base):
     __tablename__ = "game_member_info"
     game_member_id = Column(Integer, primary_key=True)
-    game_id = Column(String)
-    team_id = Column(String)
-    member_id = Column(String)
+    game_id = Column(Integer)
+    team_id = Column(Integer)
+    member_id = Column(Integer)
     game_position = Column(String)
     remark = Column(String)
 
@@ -162,7 +163,7 @@ class SettingStatus(Base):
     __tablename__ = "setting_status"
 
     setting_id = Column(Integer, primary_key=True)
-    league_id = Column(String)
+    league_id = Column(Integer)
     passwd_change_yn = Column(String)
     passwd_change_date = Column(DateTime)
     league_create_yn = Column(String)
@@ -175,7 +176,7 @@ class TeamBoard(Base):
     __tablename__ = "team_board"
 
     board_id = Column(Integer, primary_key=True)
-    team_id = Column(String)
+    team_id = Column(Integer)
     board_type = Column(String)
     board_title = Column(String)
     board_desc = Column(Text)
@@ -204,7 +205,7 @@ class SeasonBoard(Base):
     __tablename__ = "season_board"
 
     board_id = Column(Integer, primary_key=True)
-    season_id = Column(String)
+    season_id = Column(Integer)
     board_title = Column(String)
     board_desc = Column(Text)
     board_date = Column(DateTime)

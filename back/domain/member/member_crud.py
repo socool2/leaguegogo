@@ -16,7 +16,7 @@ def get_member_list(db: Session, skip: int = 0, limit: int = 10):
     return total, member_list
 
 
-def get_member_info(db: Session, member_id: str):
+def get_member_info(db: Session, member_id: int):
     member = db.query(MemberInfo).get(member_id)
     return member
 

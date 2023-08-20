@@ -3,15 +3,13 @@ import datetime
 from pydantic import BaseModel
 
 
-
-g
 class Game(BaseModel):
-    game_id: str
+    game_id: int
     season_id: int
     game_type: str
     game_round: int
-    team1_id: str
-    team2_id: str
+    team1_id: int
+    team2_id: int
     game_date: datetime.datetime
     team1_point: int
     team1_result: str
@@ -26,7 +24,7 @@ class Game(BaseModel):
         from_attributes = True
 
     @classmethod
-    def new_game(cls, season_id: str, team1_id: str, team2_id: str, game_type: str, round: int):
+    def new_game(cls, season_id: int, team1_id: int, team2_id: int, game_type: str, round: int):
         return cls(
             game_id=None,
             season_id=season_id,
@@ -35,16 +33,14 @@ class Game(BaseModel):
             team1_id=team1_id,
             team2_id=team2_id,
             game_date=None,
-            team1_point=None,
-            team1_result=None,
-            team2_point=None,
-            team2_result=None,
+            team1_point=0,
+            team1_result="scheduled",
+            team2_point=0,
+            team2_result="scheduled",
             round_status="scheduled",
             round_video_link=None,
             remark=None
         )
-
-
 
 
 
@@ -54,12 +50,12 @@ class GameList(BaseModel):
 
 
 class GameUpdate(BaseModel):
-    game_id: str
+    game_id: int
     season_id: int
     game_type: str
     game_round: int
-    team1_id: str
-    team2_id: str
+    team1_id: int
+    team2_id: int
     game_date: datetime.datetime
     team1_point: int
     team1_result: str
@@ -71,4 +67,4 @@ class GameUpdate(BaseModel):
 
 
 class GameDelete(BaseModel):
-    game_id: str
+    game_id: int

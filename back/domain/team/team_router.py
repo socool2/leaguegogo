@@ -24,7 +24,7 @@ def team_list(db: Session = Depends(get_db), page: int = 0, size: int = 10):
 
 
 @router.get("/detail/{team_id}", response_model=team_schema.Team)
-def team_detail(team_id: str, db: Session = Depends(get_db)):
+def team_detail(team_id: int, db: Session = Depends(get_db)):
     team = team_crud.get_team_info(db, team_id=team_id)
     return team
 

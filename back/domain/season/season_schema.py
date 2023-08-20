@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class Season(BaseModel):
     season_id: int
-    league_id: str
+    league_id: int
     season_name: str
     season_start_date: datetime.datetime
     season_end_date: datetime.datetime
@@ -41,7 +41,7 @@ class SeasonList(BaseModel):
 
 class SeasonUpdate(BaseModel):
     season_id: int
-    league_id: str
+    league_id: int
     season_name: str
     season_start_date: datetime.datetime
     season_end_date: datetime.datetime
