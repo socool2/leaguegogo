@@ -11,7 +11,7 @@
     <div class="mx-auto max-w-2xl px-4 py-8 sm:py-16 lg:py-20 bg-white rounded-xl shadow-lg bg-opacity-50">
       <div class="text-center pb-8">
         <h1 class="text-xl font-bold tracking-tight text-neutral-700 sm:text-4xl break-keep"><span
-          class="text-primary-500">첫 시즌 정보</span>를 등록해주세요.</h1>
+          class="text-primary-500">시즌 정보</span>를 등록해주세요.</h1>
       </div>
       <div class="flex flex-col max-w-md items-center gap-4 mx-auto">
         <div class="w-full">

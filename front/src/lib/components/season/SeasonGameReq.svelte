@@ -11,7 +11,7 @@
   })
 
   type SeasonInfo = {
-    season_id: string
+    season_id: number
     season_name: string
     season_image_link: string
     preli_yn: string
@@ -25,7 +25,7 @@
   }
 
   type SeasonTeamInfo = {
-    season_id: string
+    season_id: number
     team_id: string
     main_advance_yn: string
     playoff_advance_yn: string
@@ -33,7 +33,7 @@
 
   const season_game_info: SeasonInfo[] = [
     {
-      season_id: "1",
+      season_id: 1,
       season_name: "1st Season",
       season_image_link: "image link",
       preli_yn: "yes",
@@ -49,7 +49,7 @@
 
   const season_team_info: SeasonTeamInfo[] = [
     {
-      season_id: "1",
+      season_id: 1,
       team_id: "1",
       main_advance_yn: "yes",
       playoff_advance_yn: "waiting"
@@ -57,7 +57,7 @@
   ]
 
   const seasonTeam = {
-      season_id: "1",
+      season_id: 1,
       season_name: "1st Season",
       season_image_link: "image link",
       preli_yn: "yes",
@@ -78,7 +78,7 @@
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <button
     on:click={close}
-    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></button>
+    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
   <div class="fixed inset-0 z-10 overflow-y-auto">
 
     <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">

@@ -10,7 +10,7 @@
     data = await getSeasons(season_id)
   })
   type Season = {
-    season_id: string
+    season_id: number
     league_id: string
     season_name: string
     season_start_date: Date
@@ -20,25 +20,25 @@
     season_reg_start_date: Date
     season_reg_end_date: Date
     preli_yn: string
-    preli_game_cnt?: string| null
+    preli_game_cnt?: number| null
     preli_start_date?: Date| null
     preli_end_date?: Date| null
     preli_status?: string| null
-    main_yn: string
-    main_game_cnt: string
-    main_start_date: Date
-    main_end_date: Date
+    main_yn: string | null
+    main_game_cnt: number | null
+    main_start_date: Date | null
+    main_end_date: Date | null
     main_status: string
-    playoff_yn: string
-    playoff_game_cnt: string
-    playoff_start_date: Date
-    playoff_end_date: Date
-    playoff_status: string
+    playoff_yn: string | null
+    playoff_game_cnt: number | null
+    playoff_start_date: Date | null
+    playoff_end_date: Date | null
+    playoff_status: string | null
     remark?: string | null
   }
 
-  const season = {
-      season_id: "1",
+  const season: Season={
+      season_id: 1,
       league_id: "1",
       season_name: "1st Season",
       season_start_date: new Date(),
@@ -48,17 +48,17 @@
       season_reg_start_date: new Date(),
       season_reg_end_date: new Date(),
       preli_yn: "no",
-      preli_game_cnt: "120",
+      preli_game_cnt: 120,
       preli_start_date: new Date(),
       preli_end_date: new Date(),
       preli_status: "complete",
       main_yn: "yes",
-      main_game_cnt: "24",
+      main_game_cnt: 24,
       main_start_date: new Date(),
       main_end_date: new Date(),
       main_status: "Complete",
       playoff_yn: "yes",
-      playoff_game_cnt: "5",
+      playoff_game_cnt: 5,
       playoff_start_date: new Date(),
       playoff_end_date: new Date(),
       playoff_status: "complete",
@@ -70,7 +70,7 @@
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <button
     on:click={close}
-    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></button>
+    class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
   <div class="fixed inset-0 z-10 overflow-y-auto">
 
     <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">

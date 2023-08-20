@@ -11,8 +11,8 @@
   })
 
   type SeasonTeam = {
-    season_team_id: string
-    season_id: string
+    season_team_id: number
+    season_id: number
     team_id: string
     reg_user_id: string
     reg_date: Date
@@ -24,8 +24,8 @@
 
 
   const season_team: SeasonTeam[] = [{
-      season_team_id: "1",
-      season_id: "1",
+      season_team_id: 1,
+      season_id: 1,
       team_id: "업라이징",
       reg_user_id: "홍길동",
       reg_date: new Date(),
@@ -35,8 +35,8 @@
       remark: null
     },
     {
-      season_team_id: "2",
-      season_id: "1",
+      season_team_id: 2,
+      season_id: 1,
       team_id: "퓨얼",
       reg_user_id: "OOO",
       reg_date: new Date(),
@@ -47,7 +47,7 @@
     }]
 
   const seasonTeam = {
-    season_id: "1",
+    season_id: 1,
     season_name: "1st season",
     season_start_date: new Date(),
     season_end_date: new Date(),
