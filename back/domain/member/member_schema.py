@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class Member(BaseModel):
-    member_id: str
+    member_id: int
     member_nick_name: str
     reg_date: datetime.datetime
     with_date: datetime.datetime | None
@@ -33,7 +33,7 @@ class MemberList(BaseModel):
 
 
 class MemberUpdate(BaseModel):
-    member_id: str
+    member_id: int
     member_nick_name: str
     phone_num: str
     introduce_member: str | None
@@ -41,5 +41,5 @@ class MemberUpdate(BaseModel):
 
 
 class MemberDelete(BaseModel):
-    member_id: str
+    member_id: int
 

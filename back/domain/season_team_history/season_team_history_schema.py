@@ -6,11 +6,11 @@ from pydantic import BaseModel
 class SeasonTeamHistory(BaseModel):
     history_id: int
     season_id: int
-    team_id: str
+    team_id: int
     history_type: str
     history_date: datetime.datetime
     enter_date: datetime.datetime
-    enter_manager_id: str
+    enter_manager_id: int
     remark: str
 
     class Config:
@@ -25,11 +25,11 @@ class SeasonTeamHistoryList(BaseModel):
 class SeasonTeamHistoryUpdate(BaseModel):
     history_id: int
     season_id: int
-    team_id: str
+    team_id: int
     history_type: str
     history_date: datetime.datetime
     enter_date: datetime.datetime
-    enter_manager_id: str
+    enter_manager_id: int
     remark: str
 
 

@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class SettingStatus(BaseModel):
     setting_id: int
-    league_id: str
+    league_id: int
     passwd_change_yn: str
     passwd_change_date: datetime.datetime
     league_create_yn: str
@@ -24,7 +24,7 @@ class SettingStatusList(BaseModel):
 
 class SettingStatusUpdate(BaseModel):
     setting_id: int
-    league_id: str
+    league_id: int
     passwd_change_yn: str
     passwd_change_date: datetime.datetime
     league_create_yn: str

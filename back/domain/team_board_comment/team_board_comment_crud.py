@@ -1,4 +1,4 @@
-from domain.team_board_comment.team_board_comment_schema import TeamBoardComment,TeamBoardCommentUpdate
+from domain.team_board_comment.team_board_comment_schema import TeamBoardComment, TeamBoardCommentUpdate
 from models import TeamBoardComment
 from sqlalchemy.orm import Session
 
@@ -30,9 +30,10 @@ def create_team_board_comment_info(db: Session, team_board_comment_info: TeamBoa
     db.commit()
 
 
-def update_team_board_comment_info(db: Session, team_board_comment_info: TeamBoardComment, team_board_comment_update: TeamBoardCommentUpdate):
+def update_team_board_comment_info(db: Session, team_board_comment_info: TeamBoardComment,
+                                   team_board_comment_update: TeamBoardCommentUpdate):
     team_board_comment_info.comment_id = team_board_comment_update.comment_id,
-    team_board_comment_info.comment_Desc = team_board_comment_update.comment_Desc,
+    team_board_comment_info.comment_Desc = team_board_comment_update.comment_desc,
     team_board_comment_info.delete_date = team_board_comment_update.delete_date
     team_board_comment_info.remark = team_board_comment_update.remark
     db.add(team_board_comment_info)

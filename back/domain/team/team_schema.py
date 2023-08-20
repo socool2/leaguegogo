@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class Team(BaseModel):
-    team_id: str
+    team_id: int
     team_name: str
     team_creator: str
     introduce_team: str | None
@@ -23,7 +23,7 @@ class TeamList(BaseModel):
 
 
 class TeamUpdate(BaseModel):
-    team_id: str
+    team_id: int
     team_name: str
     introduce_team: str | None
     team_image_link: str | None
@@ -32,4 +32,4 @@ class TeamUpdate(BaseModel):
 
 
 class TeamDelete(BaseModel):
-    team_id: str
+    team_id: int

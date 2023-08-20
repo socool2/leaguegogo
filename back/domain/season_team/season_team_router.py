@@ -24,7 +24,7 @@ def season_team_list(db: Session = Depends(get_db), page: int = 0, size: int = 1
 
 
 @router.get("/detail/{season_team_id}", response_model=season_team_schema.SeasonTeam)
-def season_team_detail(season_team_id: str, db: Session = Depends(get_db)):
+def season_team_detail(season_team_id: int, db: Session = Depends(get_db)):
     season_team = season_team_crud.get_season_team_info(db, season_team_id=season_team_id)
     return season_team
 

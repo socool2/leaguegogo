@@ -24,7 +24,7 @@ def member_list(db: Session = Depends(get_db), page: int = 0, size: int = 10):
 
 
 @router.get("/detail/{member_id}", response_model=member_schema.Member)
-def member_detail(member_id: str, db: Session = Depends(get_db)):
+def member_detail(member_id: int, db: Session = Depends(get_db)):
     member = member_crud.get_member_info(db, member_id=member_id)
     return member
 

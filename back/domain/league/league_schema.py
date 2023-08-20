@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class League(BaseModel):
-    league_id: str
+    league_id: int
     league_name: str
     league_creator: str
     league_create_date: datetime.datetime
@@ -25,7 +25,7 @@ class LeagueList(BaseModel):
 
 
 class LeagueUpdate(BaseModel):
-    league_id: str
+    league_id: int
     league_name: str
     introduce_league: str | None
     league_image_link: str | None
@@ -36,4 +36,4 @@ class LeagueUpdate(BaseModel):
 
 
 class LeagueDelete(BaseModel):
-    league_id: str
+    league_id: int

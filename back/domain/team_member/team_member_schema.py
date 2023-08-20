@@ -5,8 +5,8 @@ from pydantic import BaseModel
 
 class TeamMember(BaseModel):
     team_member_id: int
-    team_id: str
-    member_id: str
+    team_id: int
+    member_id: int
     team_reg_date: datetime.datetime
     team_with_date: datetime.datetime | None
     team_member_grade: int
@@ -23,8 +23,8 @@ class TeamMemberList(BaseModel):
 
 class TeamMemberUpdate(BaseModel):
     team_member_id: int
-    team_id: str
-    member_id: str
+    team_id: int
+    member_id: int
     team_with_date: datetime.datetime | None
     team_member_grade: int
     remark: str | None

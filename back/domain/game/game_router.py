@@ -21,7 +21,7 @@ def game_list(db: Session = Depends(get_db), page: int = 0, size: int = 10):
 
 
 @router.get("/detail/{game_id}", response_model=game_schema.Game)
-def game_detail(game_id: str, db: Session = Depends(get_db)):
+def game_detail(game_id: int, db: Session = Depends(get_db)):
     game = game_crud.get_game_info(db, game_id=game_id)
     return game
 
