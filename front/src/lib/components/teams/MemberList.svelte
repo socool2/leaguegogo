@@ -12,8 +12,8 @@
 
   type TeamMember = {
     team_member_id: number;
-    team_id: string;
-    member_id: string;
+    team_id: number;
+    member_id: number;
     team_reg_date: Date;
     team_with_date: Date;
     team_member_grade: number
@@ -21,7 +21,7 @@
   }
 
   type Team = {
-    team_id: string;
+    team_id: number;
     team_name: string;
     team_create_date: Date;
     introduce_team: string;
@@ -30,33 +30,33 @@
 
 
   const sampleTeamMember: TeamMember[] = [{
-    team_id: "1",
+    team_id: 1,
     team_member_id: 1,
-    member_id: "1",
+    member_id: 1,
     team_reg_date: new Date(),
     team_with_date: new Date(),
     team_member_grade: 1
   },
     {
-      team_id: "1",
+      team_id: 1,
       team_member_id: 1,
-      member_id: "1",
+      member_id: 1,
       team_reg_date: new Date(),
       team_with_date: new Date(),
       team_member_grade: 1
     },
     {
-      team_id: "1",
+      team_id: 1,
       team_member_id: 1,
-      member_id: "1",
+      member_id: 1,
       team_reg_date: new Date(),
       team_with_date: new Date(),
       team_member_grade: 1
     },
     {
-      team_id: "1",
+      team_id: 1,
       team_member_id: 1,
-      member_id: "1",
+      member_id: 1,
       team_reg_date: new Date(),
       team_with_date: new Date(),
       team_member_grade: 1
