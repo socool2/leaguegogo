@@ -38,7 +38,7 @@ class TeamMemberInfo(Base):
     __tablename__ = "team_member_info"
 
     team_member_id = Column(Integer, primary_key=True)
-    team_id = Column(String, nullable=False)
+    team_id = Column(Integer, nullable=False)
     member_id = Column(String, nullable=False)
     team_reg_date = Column(DateTime, nullable=False)
     team_with_date = Column(DateTime)
@@ -111,8 +111,8 @@ class GameInfo(Base):
     season_id = Column(Integer, nullable=False)
     game_type = Column(String)
     game_round = Column(Integer)
-    team1_id = Column(String)
-    team2_id = Column(String)
+    team1_id = Column(Integer)
+    team2_id = Column(Integer)
     game_date = Column(DateTime, nullable=False)
     team1_point = Column(Integer, nullable=False)
     team1_result = Column(String, nullable=False)
