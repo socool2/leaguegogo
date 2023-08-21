@@ -12,6 +12,7 @@ class League(BaseModel):
     league_image_link: str | None
     league_start_date: datetime.datetime
     league_end_date: datetime.datetime
+    # in_progress, finished
     league_status: str
     remark: str | None
 
