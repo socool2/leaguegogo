@@ -1,10 +1,11 @@
 import datetime
+from typing import Optional
 
 from pydantic import BaseModel
 
 
 class Game(BaseModel):
-    game_id: int
+    game_id: Optional[int]
     season_id: int
     game_type: str
     game_round: int
@@ -39,8 +40,8 @@ class Game(BaseModel):
             team2_point=0,
             team2_result="scheduled",
             round_status="scheduled",
-            round_video_link=None,
-            remark=None
+            round_video_link="",
+            remark=""
         )
 
 

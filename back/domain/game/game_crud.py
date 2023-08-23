@@ -22,7 +22,7 @@ def create_game_info(db: Session, game_info: Game):
     db.commit()
 
 
-def define_game_info(db: Session, game_info: Game):
+def define_game_info(game_info: Game):
     return GameInfo(
         game_id=game_info.game_id,
         season_id=game_info.season_id,

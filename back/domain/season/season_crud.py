@@ -82,3 +82,8 @@ def delete_season(db: Session, db_season: Season):
     db.delete(db_season)
     db.commit()
 
+
+def confirm_season(db: Session, db_season: Season):
+    db_season.main_status = "in_progress"
+    db.add(db_season)
+    db.commit()
