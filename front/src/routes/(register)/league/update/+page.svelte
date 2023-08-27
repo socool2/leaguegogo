@@ -1,6 +1,51 @@
-<script>
+<script lang="ts">
+  import {leagueData, selectLeagueId, selectLeagueName} from "$lib/store";
+  import LeagueModify from "$lib/components/league/LeagueModify.svelte";
+
+  let id = $selectLeagueId
+  let league = $leagueData
   $: openModal = false;
-  $: leagueName = '';
+  let leagueName = league.league_name;
+  let leagueIntroduce = league.introduce_league;
+  let leagueImgLink = league.league_image_link;
+  let leagueStartDate = league.league_start_date;
+  let leagueEndDate = league.league_end_date;
+
+
+  type League = {
+    league_id: number
+    league_name: string
+    introduce_league: string
+    league_image_link: string| null
+    league_start_date: Date
+    league_end_date: Date
+  }
+
+  let status = ''
+  let leagueInfo: League;
+
+  const reqUpdateLeague = () => {
+    leagueInfo = {
+      league_id: id,
+      league_name: leagueName,
+      introduce_league: leagueIntroduce,
+      league_image_link: leagueImgLink,
+      league_start_date: leagueStartDate,
+      league_end_date: leagueEndDate
+    }
+
+    console.log(leagueInfo)
+
+    leagueName = ''
+    leagueIntroduce = ''
+    leagueImgLink = ''
+    leagueStartDate = ''
+    leagueEndDate = ''
+
+    status = '1'
+  }
+
+
 </script>
 <div class="">
   <div class="relative isolate px-6 pt-14 lg:px-8">
@@ -27,18 +72,17 @@
         <div class="w-full">
           <label for="league-introduce" class="block text-sm font-medium leading-6 text-gray-900"><span class="text-red-600">*</span> 리그 소개</label>
           <div class="mt-2">
-            <textarea name="league-introduce" id="league-introduce"
+            <textarea bind:value={leagueIntroduce} name="league-introduce" id="league-introduce"
                       maxlength="2000"
                       rows="6"
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
-                   placeholder="등록된 리그 소개 정보 입력 " aria-describedby="league-information-description">
-            </textarea>
+                      placeholder="등록된 리그 소개 정보 입력 " aria-describedby="league-information-description"/>
           </div>
         </div>
         <div class="w-full">
           <label for="league-thumbnail" class="block text-sm font-medium leading-6 text-gray-900"><span class="text-red-600">*</span> 대표 이미지</label>
           <div class="mt-2">
-            <input type="file" name="league-thumbnail" id="league-thumbnail"
+            <input type="file" name="league-thumbnail" id="league-thumbnail" bind:value={leagueImgLink}
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
                    placeholder="리그 대표 이미지 파일" aria-describedby="league-description">
           </div>
@@ -49,7 +93,7 @@
         <div class="w-full">
           <label for="league-start-date" class="block text-sm font-medium leading-6 text-gray-900"><span class="text-red-600">*</span> 리그 시작일</label>
           <div class="mt-2">
-            <input type="date" name="league-name" id="league-start-date"
+            <input type="date" name="league-name" id="league-start-date" bind:value={leagueStartDate}
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
                    >
           </div>
@@ -57,42 +101,18 @@
         <div class="w-full">
           <label for="league-start-date" class="block text-sm font-medium leading-6 text-gray-900"><span class="text-red-600">*</span> 리그 종료일</label>
           <div class="mt-2">
-            <input type="date" name="league-name" id="league-end-date"
+            <input type="date" name="league-name" id="league-end-date" bind:value={leagueEndDate}
                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 px-2"
             >
           </div>
         </div>
         <button
-          on:click={() => openModal = true}
+          on:click={() => reqUpdateLeague() }
           type="button" class="rounded-lg w-full  bg-primary-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">확인</button>
       </div>
     </div>
   </div>
 </div>
-
-{#if openModal}
-  <div class="relative z-20" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-
-    <div
-      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
-    <div class="fixed inset-0 z-10 overflow-y-auto">
-      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div
-          class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-          <div class="text-center text-gray-700">
-            {leagueName} 수정이 완료되었습니다! <br/>
-          </div>
-          <div class="mt-5 sm:mt-6">
-            <button
-              on:click={() => openModal = false}
-              type="button"
-              class="inline-flex w-full justify-center rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
-              확인
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+{#if status === '1'}
+  <LeagueModify leagueInfo={leagueInfo}/>
 {/if}

@@ -1,4 +1,5 @@
 import datetime
+import logging
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -29,15 +30,20 @@ def league_detail(league_id: int, db: Session = Depends(get_db)):
     return league
 
 
+@router.get("/name/{league_name}", response_model=league_schema.League)
+def league_detail_by_name(league_name: str, db: Session = Depends(get_db)):
+    league = league_crud.get_league_info_by_name(db, league_name=league_name)
+    return league
+
+
 @router.post('/create', status_code=status.HTTP_204_NO_CONTENT)
-def league_create(_league_info: league_schema.League, db: Session = Depends(get_db)):
-    _league_info.league_create_date = datetime.datetime.now()
+def league_create(_league_info: league_schema.LeagueCreate, db: Session = Depends(get_db)):
     league_crud.create_league_info(db, league_info=_league_info)
 
 
 @router.put('/update', status_code=status.HTTP_204_NO_CONTENT)
 def league_update(_league_update: league_schema.LeagueUpdate,
-                db: Session = Depends(get_db)):
+                  db: Session = Depends(get_db)):
     db_league = league_crud.get_league_info(db, league_id=_league_update.league_id)
     if not db_league:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="데이터를 찾을 수 없습니다.")
@@ -46,7 +52,7 @@ def league_update(_league_update: league_schema.LeagueUpdate,
 
 @router.delete('/delete', status_code=status.HTTP_204_NO_CONTENT)
 def league_delete(_league_delete: league_schema.LeagueDelete,
-                db: Session = Depends(get_db)):
+                  db: Session = Depends(get_db)):
     db_league = league_crud.get_league_info(db, league_id=_league_delete.league_id)
     if not db_league:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='데이터를 찾을 수 없습니다.')

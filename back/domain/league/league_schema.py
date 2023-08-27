@@ -37,3 +37,15 @@ class LeagueUpdate(BaseModel):
 
 class LeagueDelete(BaseModel):
     league_id: int
+
+
+class LeagueCreate(BaseModel):
+    league_name: str
+    league_creator: str
+    league_create_date: datetime.datetime
+    introduce_league: str | None
+    league_image_link: str | None
+    league_start_date: datetime.datetime
+    league_end_date: datetime.datetime
+    league_status: str
+    remark: str | None

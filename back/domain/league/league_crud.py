@@ -17,9 +17,13 @@ def get_league_info(db: Session, league_id: int):
     return league
 
 
+def get_league_info_by_name(db: Session, league_name: str):
+    league = db.query(LeagueInfo).filter_by(league_name=league_name).first()
+    return league
+
+
 def create_league_info(db: Session, league_info: League):
     db_league = LeagueInfo(
-        league_id=league_info.league_id,
         league_name=league_info.league_name,
         league_creator=league_info.league_creator,
         league_create_date=league_info.league_create_date,
