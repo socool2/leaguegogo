@@ -18,7 +18,6 @@ def get_season_info(db: Session, season_id: int):
 
 def create_season_info(db: Session, season_info: Season):
     db_season = SeasonInfo(
-        season_id=season_info.season_id,
         league_id=season_info.league_id,
         season_name=season_info.season_name,
         season_start_date=season_info.season_start_date,

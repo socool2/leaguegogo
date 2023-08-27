@@ -28,7 +28,7 @@ class Season(BaseModel):
     playoff_start_date: datetime.datetime
     playoff_end_date: datetime.datetime
     playoff_status: str
-    remark: str
+    remark: str | None
 
     class Config:
         from_attributes = True
@@ -64,8 +64,35 @@ class SeasonUpdate(BaseModel):
     playoff_start_date: datetime.datetime
     playoff_end_date: datetime.datetime
     playoff_status: str
-    remark: str
+    remark: str | None
 
 
 class SeasonDelete(BaseModel):
     season_id: int
+
+
+class SeasonCreate(BaseModel):
+    league_id: int
+    season_name: str
+    season_start_date: datetime.datetime| None
+    season_end_date: datetime.datetime| None
+    season_desc: str
+    season_image_link: str
+    season_reg_start_date: datetime.datetime| None
+    season_reg_end_date: datetime.datetime| None
+    preli_yn: str
+    preli_game_cnt: int
+    preli_start_date: datetime.datetime| None
+    preli_end_date: datetime.datetime| None
+    preli_status: str
+    main_yn: str
+    main_game_cnt: int
+    main_start_date: datetime.datetime| None
+    main_end_date: datetime.datetime| None
+    main_status: str
+    playoff_yn: str
+    playoff_game_cnt: int
+    playoff_start_date: datetime.datetime| None
+    playoff_end_date: datetime.datetime| None
+    playoff_status: str
+    remark: str | None

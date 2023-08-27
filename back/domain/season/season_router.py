@@ -33,7 +33,7 @@ def season_detail(season_id: int, db: Session = Depends(get_db)):
 
 
 @router.post('/create', status_code=status.HTTP_204_NO_CONTENT)
-def season_create(_season_info: season_schema.Season, db: Session = Depends(get_db)):
+def season_create(_season_info: season_schema.SeasonCreate, db: Session = Depends(get_db)):
     season_crud.create_season_info(db, season_info=_season_info)
 
 
