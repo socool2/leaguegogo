@@ -17,16 +17,22 @@ class Season(BaseModel):
     preli_game_cnt: int
     preli_start_date: datetime.datetime
     preli_end_date: datetime.datetime
+
+    # scheduled, in_progress, finished
     preli_status: str
     main_yn: str
     main_game_cnt: int
     main_start_date: datetime.datetime
     main_end_date: datetime.datetime
+
+    # scheduled, in_progress, finished
     main_status: str
     playoff_yn: str
     playoff_game_cnt: int
     playoff_start_date: datetime.datetime
     playoff_end_date: datetime.datetime
+
+    # scheduled, in_progress, finished
     playoff_status: str
     remark: str
 
