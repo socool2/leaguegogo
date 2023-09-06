@@ -6,7 +6,7 @@ from database import Base
 class MemberInfo(Base):
     __tablename__ = "member_info"
 
-    member_id = Column(Integer, primary_key=True)
+    member_id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String, unique=True, nullable=False)
     nick_name = Column(String, nullable=False)
     reg_date = Column(DateTime, nullable=False)
@@ -24,7 +24,7 @@ class MemberInfo(Base):
 class TeamInfo(Base):
     __tablename__ = "team_info"
 
-    team_id = Column(Integer, primary_key=True)
+    team_id = Column(Integer, primary_key=True, autoincrement=True)
     team_name = Column(String, nullable=False)
     team_creator = Column(String, nullable=False)
     introduce_team = Column(Text)
@@ -37,9 +37,9 @@ class TeamInfo(Base):
 class TeamMemberInfo(Base):
     __tablename__ = "team_member_info"
 
-    team_member_id = Column(Integer, primary_key=True)
+    team_member_id = Column(Integer, primary_key=True, autoincrement=True)
     team_id = Column(Integer, nullable=False)
-    member_id = Column(String, nullable=False)
+    member_id = Column(Integer, nullable=False)
     team_reg_date = Column(DateTime, nullable=False)
     team_with_date = Column(DateTime)
     team_member_grade = Column(String, nullable=False)
@@ -49,7 +49,7 @@ class TeamMemberInfo(Base):
 class SupportersInfo(Base):
     __tablename__ = "supporters_info"
 
-    supporters_id = Column(Integer, primary_key=True)
+    supporters_id = Column(Integer, primary_key=True, autoincrement=True)
     team_id = Column(Integer, nullable=False)
     member_id = Column(Integer, nullable=False)
     supp_reg_date = Column(DateTime, nullable=False)
@@ -61,7 +61,7 @@ class SupportersInfo(Base):
 class LeagueInfo(Base):
     __tablename__ = "league_info"
 
-    league_id = Column(Integer, primary_key=True)
+    league_id = Column(Integer, primary_key=True, autoincrement=True)
     league_name = Column(String, nullable=False)
     league_creator = Column(String, nullable=False)
     league_create_date = Column(DateTime, nullable=False)
@@ -76,7 +76,7 @@ class LeagueInfo(Base):
 class SeasonInfo(Base):
     __tablename__ = "season_info"
 
-    season_id = Column(Integer, primary_key=True)
+    season_id = Column(Integer, primary_key=True, autoincrement=True)
     league_id = Column(Integer, nullable=False)
     season_name = Column(String, nullable=False)
     season_start_date = Column(DateTime, nullable=False)
@@ -107,7 +107,7 @@ class SeasonInfo(Base):
 class GameInfo(Base):
     __tablename__ = "game_info"
 
-    game_id = Column(Integer, primary_key=True)
+    game_id = Column(Integer, primary_key=True, autoincrement=True)
     season_id = Column(Integer, nullable=False)
     game_type = Column(String)
     game_round = Column(Integer)
@@ -126,7 +126,7 @@ class GameInfo(Base):
 class SeasonTeamInfo(Base):
     __tablename__ = "season_team_info"
 
-    season_team_id = Column(Integer, primary_key=True)
+    season_team_id = Column(Integer, primary_key=True, autoincrement=True)
     season_id = Column(Integer)
     team_id = Column(Integer)
     reg_user_id = Column(Integer, nullable=False)
@@ -140,7 +140,7 @@ class SeasonTeamInfo(Base):
 class SeasonTeamHistory(Base):
     __tablename__ = "season_team_history"
 
-    history_id = Column(Integer, primary_key=True)
+    history_id = Column(Integer, primary_key=True, autoincrement=True)
     season_id = Column(Integer)
     team_id = Column(Integer)
     history_type = Column(String, nullable=False)
@@ -152,7 +152,7 @@ class SeasonTeamHistory(Base):
 
 class GameMemberInfo(Base):
     __tablename__ = "game_member_info"
-    game_member_id = Column(Integer, primary_key=True)
+    game_member_id = Column(Integer, primary_key=True, autoincrement=True)
     game_id = Column(Integer)
     team_id = Column(Integer)
     member_id = Column(Integer)
@@ -163,7 +163,7 @@ class GameMemberInfo(Base):
 class SettingStatus(Base):
     __tablename__ = "setting_status"
 
-    setting_id = Column(Integer, primary_key=True)
+    setting_id = Column(Integer, primary_key=True, autoincrement=True)
     league_id = Column(Integer)
     passwd_change_yn = Column(String)
     passwd_change_date = Column(DateTime)
@@ -176,7 +176,7 @@ class SettingStatus(Base):
 class TeamBoard(Base):
     __tablename__ = "team_board"
 
-    board_id = Column(Integer, primary_key=True)
+    board_id = Column(Integer, primary_key=True, autoincrement=True)
     team_id = Column(Integer)
     board_type = Column(String)
     board_title = Column(String)
@@ -193,7 +193,7 @@ class TeamBoard(Base):
 class TeamBoardComment(Base):
     __tablename__ = "team_board_comment"
 
-    comment_id = Column(Integer, primary_key=True)
+    comment_id = Column(Integer, primary_key=True, autoincrement=True)
     board_id = Column(Integer)
     comment_desc = Column(String)
     write_member_id = Column(Integer)
@@ -205,7 +205,7 @@ class TeamBoardComment(Base):
 class SeasonBoard(Base):
     __tablename__ = "season_board"
 
-    board_id = Column(Integer, primary_key=True)
+    board_id = Column(Integer, primary_key=True, autoincrement=True)
     season_id = Column(Integer)
     board_title = Column(String)
     board_desc = Column(Text)
@@ -221,7 +221,7 @@ class SeasonBoard(Base):
 class SeasonBoardComment(Base):
     __tablename__ = "season_board_comment"
 
-    comment_id = Column(Integer, primary_key=True)
+    comment_id = Column(Integer, primary_key=True, autoincrement=True)
     board_id = Column(Integer)
     comment_desc = Column(String)
     write_member_id = Column(Integer)
@@ -234,7 +234,7 @@ class SeasonBoardComment(Base):
 class MenuAuthInfo(Base):
     __tablename__ = "menu_auth"
 
-    menu_auth_id = Column(Integer, primary_key=True)
+    menu_auth_id = Column(Integer, primary_key=True, autoincrement=True)
     menu_id = Column(Integer)
     create_date = Column(DateTime)
     delete_date = Column(DateTime)
@@ -244,7 +244,7 @@ class MenuAuthInfo(Base):
 class MenuInfo(Base):
     __tablename__ = "menu_info"
 
-    menu_id = Column(Integer, primary_key=True)
+    menu_id = Column(Integer, primary_key=True, autoincrement=True)
     menu_name = Column(String, nullable=False)
     menu_desc = Column(String)
     create_date = Column(DateTime, nullable=False)

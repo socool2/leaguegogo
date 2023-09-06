@@ -10,7 +10,9 @@ from domain.game.game_crud import define_game_info
 from domain.game.game_schema import Game
 
 from domain.season import season_schema, season_crud
+from domain.season.season_schema import Season
 from domain.season_team.season_team_schema import SeasonTeamList
+from models import SeasonTeamInfo
 
 router = APIRouter(
     prefix="/api/season",
@@ -57,8 +59,8 @@ def season_delete(_season_delete: season_schema.SeasonDelete,
 
 @router.post('/{season_id}/confirm', status_code=status.HTTP_204_NO_CONTENT)
 def season_confirm(season_id: int, db: Session = Depends(get_db)):
-    db_season = season_crud.get_season_info(db, season_id=season_id)
-    teams = db.query(SeasonTeamList).filter(SeasonTeamList.season_id == season_id).all()
+    db_season: Season = season_crud.get_season_info(db, season_id=season_id)
+    teams = db.query(SeasonTeamInfo).filter(SeasonTeamInfo.season_id == season_id).all()
 
     if not db_season:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='데이터를 찾을 수 없습니다.')
@@ -69,8 +71,7 @@ def season_confirm(season_id: int, db: Session = Depends(get_db)):
     try:
         for i in range(len(teams)):
             for j in range(i + 1, len(teams)):
-                # 프리뷰 시점까지는 3라운드 고정
-                for k in range(3):
+                for k in range(db_season.main_game_cnt):
                     games.append(define_game_info(
                         Game.new_game(season_id=season_id, team1_id=teams[i].team_id, team2_id=teams[j].team_id,
                                       game_round=k + 1, game_type='preli', game_date=match_date)))
@@ -85,4 +86,4 @@ def season_confirm(season_id: int, db: Session = Depends(get_db)):
 
     db.commit()
 
-    season_crud.confirm_season(db=db, season_id=season_id)
+    season_crud.confirm_season(db=db, db_season=db_season)

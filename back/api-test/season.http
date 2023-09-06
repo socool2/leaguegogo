@@ -1,0 +1,4 @@
+POST http://localhost:8000/api/season/1/confirm
+Content-Type: application/json
+
+
